@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title><%= full_site_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title><%= full_site_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag :modernizr %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js" %>
+    <%= javascript_include_tag "https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js" %>
+    <%= render partial: 'layouts/partials/shim' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/partials/admin/header' %>
+    </header>
 
-<%= yield %>
+    <div class="container">
+      <%= bootstrap_flash %>
+      <%= yield %>
+    </div>
 
-</body>
+    <script>
+      $(document).ready(function(){
+        setTimeout(function(){
+          $('.alert').remove();
+        }, 120000);
+       })
+    </script>
+
+  </body>
 </html>
