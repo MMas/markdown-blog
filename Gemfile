@@ -9,7 +9,7 @@ gem 'albino'
 gem 'nokogiri'
 
 gem 'kaminari'
-gem 'bootstrap-sass', '~> 3.2.0.0'
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'font-awesome-rails'
 gem 'sass-rails', '~> 5.0'
 gem 'modernizr-rails'
