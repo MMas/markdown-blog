@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :frontend, path: '/' do
+    root 'articles#index'
+    resources :articles, only: [:index, :show] do
+      member do
+        post "new_comment"
+      end
+    end
+  end
+
   devise_for :administrators
   namespace :admin do
     root 'dashboard#index'
