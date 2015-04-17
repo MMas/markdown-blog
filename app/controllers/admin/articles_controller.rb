@@ -19,6 +19,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @article.administrator = current_administrator
     if @article.save
       redirect_to [:admin, @article], notice: "Successfully created article."
     else
@@ -45,7 +46,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:name, :content)
+      params.require(:article).permit(:name, :content, :administrator_id)
     end
 
     def find_article
