@@ -1,0 +1,11 @@
+.navbar-static-top {
+  background: #444444;
+  color: #fff;
+}
+
+.navbar-static-top .navbar-nav>li>a {
+  color: #999;
+  &:hover {
+   color: #fff;
+  }
+}
