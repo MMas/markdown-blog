@@ -1,0 +1,41 @@
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+  <h1><%= @article.name %></h1>
+  <p class="lead">Posted by <%= @article.try(:administrator) ? @article.administrator.email : 'Anonymous' %></p>
+  <hr>
+  <p><span class="glyphicon glyphicon-time"></span> Posted on <%= I18n.l(@article.created_at, format: :short) %> </p>
+  <hr>
+  <p class="lead"><%= markdown(@article.content) %></p>
+  <hr>
+
+  <div class="well">
+    <h4>Leave a Comment:</h4>
+    <%= simple_form_for @comment, url: new_comment_frontend_article_path(@article), html: { class: 'form-horizontal' } do |f| -%>
+      <%= f.input :title, placeholder: 'Comment Title' %>
+      <br/>
+      <%= f.input :comment, as: :text, input_html: { cols: 5, rows: 5, placeholder: 'Enter comment' } %>
+      <div class= "form-actions">
+        <%= f.button :submit,  "Post Comment",class: "btn btn-success"%>
+      </div>
+    <%- end -%>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <h2>Comments:</h2>
+
+  <hr class="featurette-divider">
+
+  <% @comments.each do|comment| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading"><%= comment.title %>
+          <small><%= time_ago_in_words(comment.created_at) %></small>
+        </h4>
+        <%= comment.try(:comment)%>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  <% end %>
+
+</div>
