@@ -1,0 +1,18 @@
+<% if object.errors.any? %>
+  <div class="row form-group">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h3>
+        <div class="red text--center"><%= "Found #{pluralize(object.errors.count, "error")}"%></div>
+      </h3>
+      <div class="alert alert-danger">
+        <ul>
+          <% object.errors.full_messages.each do |msg| %>
+            <li class="red">
+              <%= msg %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

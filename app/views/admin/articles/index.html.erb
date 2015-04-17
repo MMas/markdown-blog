@@ -1,0 +1,45 @@
+<%= provide(:title, "Articles") %>
+
+<div class="btn-group pull-right">
+  <%= link_to('Add an Article', new_admin_article_path, class: 'btn btn-info') %>
+</div>
+
+<h1>Articles</h1>
+
+<hr class="featurette-divider">
+
+<div class="row">
+  <div class="col-md-12">
+    <div id="articles">
+      <% @articles.each do|article| %>
+        <div class="panel">
+          <div class="panel-heading">
+            <div class="text-center">
+              <div class="row">
+                <div class="col-sm-9">
+                  <h3 class="pull-left"><%= article.name %></h3>
+                </div>
+                <div class="col-sm-3">
+                  <h4 class="pull-right">
+                    <small><em><%= I18n.l(article.created_at, format: :short) %></small>
+                  </h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <%= truncate(article.content, length: 500) { link_to "Read more.", [:admin, article], class: 'btn btn-xs btn-info'}  %>
+        </div>
+        <div class="panel-footer">
+          <div class="btn-group">
+            <%= link_to 'Edit', edit_admin_article_path(article), class: "btn btn-sm btn-warning" %>
+            <%= link_to 'Destroy', [:admin, article], method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-sm btn-danger"  %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= paginate @articles %>

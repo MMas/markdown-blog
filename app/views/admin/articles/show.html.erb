@@ -1,0 +1,13 @@
+<%= provide(:title, "#{@article.name}") %>
+
+<div class="btn-group pull-right">
+  <%= link_to('Add an Article', new_admin_article_path, class: 'btn btn-info') %>
+  <%= link_to "Edit", edit_admin_article_path(@article), class: 'btn btn-warning' %>
+  <%= link_to('Back', admin_articles_path, class: 'btn btn-default') %>
+</div>
+
+<h1><%= @article.name %></h1>
+
+<hr class="featurette-divider">
+
+<%= markdown(@article.content) %>
