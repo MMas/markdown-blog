@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <% @articles.each do|article| %>
+        <div class="article-preview">
+          <a href="<%= frontend_article_path(article) %>">
+            <h3 class="article-title"><%= article.name %></h3>
+            <h4 class="article-subtitle">
+              <%= truncate(article.content, length: 500) %>
+            </h4>
+          </a>
+          <p class="article-meta">
+            Posted by <a href="#"><%= article.try(:administrator) ? article.administrator.email : 'Anonymous' %></a>
+            on <%= I18n.l(article.created_at, format: :short) %>
+          </p>
+        </div>
+        <hr class="featurette-divider">
+      <% end %>
+      <%= paginate @articles %>
+    </div>
+</div>
