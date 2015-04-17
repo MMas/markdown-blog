@@ -7,6 +7,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def show
+    @comments = @article.comments.recent.limit(10).all
     if request.path != admin_article_path(@article)
       redirect_to [:admin, @article], status: :moved_permanently
     end
