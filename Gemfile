@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'devise'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'redcarpet'
 gem 'albino'
