@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :administrators
   namespace :admin do
     root 'dashboard#index'
     resources :articles
