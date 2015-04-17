@@ -8,6 +8,30 @@
 
 <h1><%= @article.name %></h1>
 
+
 <hr class="featurette-divider">
 
+
 <%= markdown(@article.content) %>
+
+
+<hr class="featurette-divider">
+
+<div class="row comments">
+  <div class="col-md-8">
+    <div class="page-header">
+      <h1><small class="pull-right"><%= @comments.count %></small> Comments </h1>
+    </div>
+    <div class="comments-list">
+       <% @comments.each do|comment| %>
+        <div class="media">
+          <p class="pull-right"><small><%= time_ago_in_words(comment.created_at) %></small></p>
+          <div class="media-body">
+            <h4 class="media-heading user_name"><%= comment.try(:user).try(:name) %></h4>
+            <%= comment.try(:comment)%>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
