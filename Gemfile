@@ -4,6 +4,7 @@ gem 'rails', '4.2.1'
 gem 'pg'
 gem 'devise'
 gem 'friendly_id', '~> 5.1.0'
+gem 'acts_as_commentable'
 
 gem 'redcarpet'
 gem 'albino'
