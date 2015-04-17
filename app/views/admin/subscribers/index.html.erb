@@ -1,0 +1,30 @@
+<%= provide(:title, "Subscribers") %>
+
+<div class="page-header">
+  <h1>Subscribers</h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Created</th>
+      <th class="actions col-md-1">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscribers.each do |subscriber| %>
+      <tr>
+        <td><%= subscriber.email %></td>
+        <td><%= subscriber.first_name %></td>
+        <td class="actions">
+          <%= link_to "Destroy", subscriber, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="pull-right">
+  <%= paginate @subscribers %>
+</div>
