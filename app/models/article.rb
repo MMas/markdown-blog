@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
 
   extend FriendlyId
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: :history
 
   acts_as_commentable
 
@@ -13,8 +13,5 @@ class Article < ActiveRecord::Base
 
   default_scope{ order('created_at DESC') }
 
-  def should_generate_new_friendly_id?
-    new_record?
-  end
 
 end
