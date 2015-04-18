@@ -2,15 +2,19 @@
   <div class="intro-text">
     <div class="container">
       <div class="row">
-      <div class="col-md-12">
-        <div class="brand">
-          <h1>
-            <%= link_to 'Markdown Blog', frontend_root_path %>
-          </h1>
-          <div class="line-spacer"></div>
-          <p><span>Get The Latest Scoop</span></p>
+        <div class="col-md-12">
+          <div class="brand">
+            <h1>
+              <%= link_to 'Markdown Blog', frontend_root_path %>
+            </h1>
+            <div class="line-spacer"></div>
+            <p><span>Get The Latest Scoop</span></p>
+            <br/>
+          </div>
         </div>
-      </div>
+        <div class="col-md-12">
+          <%= render 'shared/subscribe' %>
+        </div>
       </div>
     </div>
    </div>

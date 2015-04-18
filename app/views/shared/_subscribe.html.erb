@@ -1,0 +1,6 @@
+<%= form_tag(subscribe_frontend_subscriptions_path, method: :post, role: "subscribe") do %>
+  <div>
+    <%= text_field_tag "subscriber[email]", nil, placeholder: "Your Email", autocomplete: "off", id: "email", class: "btn btn-lg"  %>
+    <%= button_tag "Subscribe", name: nil, class: "btn btn-info btn-lg" %>
+  </div>
+<% end %>
