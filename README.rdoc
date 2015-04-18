@@ -6,18 +6,22 @@ application up and running.
 Ruby version:
 * 2.2.0
 
+
 Database creation and population:
 * <tt>bundle exec rake db:create</tt>
 * <tt>bundle exec rake db:migrate</tt>
 * <tt>bundle exec rake db:seed</tt>
 
+
 How to run the test suite:
 * <tt>bundle exec rspec</tt>
+
 
 How to run the application:
 * In a separate terminal - <tt>bundle exec rails s -p 3000</tt>
 * In a separate terminal - <tt>bundle exec sidekiq</tt>
-* In a separate terminal - <tt>redis server</tt>
+* In a separate terminal - <tt>redis-server</tt>
+
 
 How to access admin panel:
 * Visit - <tt>http://localhost:3000/admin</tt>
