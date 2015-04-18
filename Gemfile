@@ -11,9 +11,8 @@ gem 'albino'
 gem 'nokogiri'
 
 gem 'sidekiq'
-
-gem "letter_opener"
-gem "launchy"
+gem 'sinatra', '>= 1.3.0', :require => nil
+gem 'slim',                          '2.0.1'
 
 gem 'simple_form'
 gem 'kaminari'
@@ -40,6 +39,9 @@ group :development do
   gem 'bullet'
   gem 'better_errors', '< 2'
   gem 'binding_of_caller'
+
+  gem "letter_opener"
+  gem "launchy"
 
   gem 'spork-rails'
   gem 'capybara-rails'
