@@ -51,7 +51,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     end
 
     def find_article
-      @article = Article.friendly.find(params[:id])
+      @article = Article.includes(:comments).friendly.find(params[:id])
     end
 
 end

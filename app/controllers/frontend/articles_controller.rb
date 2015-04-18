@@ -5,9 +5,9 @@ class Frontend::ArticlesController < Frontend::ApplicationController
   end
 
   def show
-    @article = Article.friendly.find(params[:id])
-    @comment = @article.comments.new
+    @article = Article.includes(:comments).friendly.find(params[:id])
     @comments = @article.comments.recent.limit(10).all
+    @comment = @article.comments.new
   end
 
   def new_comment
