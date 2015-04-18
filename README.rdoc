@@ -1,28 +1,23 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
+This README documents steps necessary to get the
 application up and running.
 
-Things you may want to cover:
+Ruby version:
+* 2.2.0
 
-* Ruby version
+Database creation and population:
+* <tt>bundle exec rake db:create</tt>
+* <tt>bundle exec rake db:migrate</tt>
+* <tt>bundle exec rake db:seed</tt>
 
-* System dependencies
+How to run the test suite:
+* <tt>bundle exec rspec</tt>
 
-* Configuration
+How to run the application:
+* In a separate terminal - <tt>bundle exec rails s -p 3000</tt>
+* In a separate terminal - <tt>bundle exec sidekiq</tt>
+* In a separate terminal - <tt>redis server</tt>
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+How to access admin panel:
+* Visit - <tt>http://localhost:3000/admin</tt>
