@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+  
   namespace :frontend, path: '/' do
     root 'articles#index'
     resources :articles, only: [:index, :show] do
