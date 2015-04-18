@@ -70,6 +70,10 @@ Spork.prefork do
     config.infer_spec_type_from_file_location!
     config.include FactoryGirl::Syntax::Methods
     config.include Capybara::DSL
+    config.include Requests::JsonHelpers, type: :request
+    config.extend  ViewMacros, :type => :view
+    config.include Devise::TestHelpers, :type => :controller
+    config.extend  ControllerMacros, :type => :controller
   end
 
   Capybara.javascript_driver = :webkit
