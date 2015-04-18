@@ -52,7 +52,7 @@ end
 group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-core'
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.2.1'
   gem 'rspec-expectations'
   gem 'rspec-collection_matchers'
   gem 'growl'
