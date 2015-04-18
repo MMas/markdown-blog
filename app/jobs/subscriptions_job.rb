@@ -1,14 +1,11 @@
 class SubscriptionsJob < ActiveJob::Base
+  include Sidekiq::Worker
 
-  rescue_from(ErrorLoadingSite) do
-    retry_job wait: 5.minutes, queue: :subscriptions
-  end
-
-  def perform(article)
+  def self.perform(article)
     @subscribers = Subscriber.all
     if @subscribers.any?
       @subscribers.collect do |subscriber|
-        SubscriptionsMailer.subscriptions(subscriber, article).deliver
+        SubscriptionsMailer.subscription(subscriber, article).deliver
       end
     end
   end
