@@ -18,7 +18,7 @@
 <div class="row comments">
   <div class="col-md-8">
     <div class="page-header">
-      <h1><small class="pull-right"><%= @comments.count %></small> Comments </h1>
+      <h1><small class="pull-right"><%= @article.comments_count %></small> Comments </h1>
     </div>
     <div class="comments-list">
       <% @comments.each do|comment| %>
