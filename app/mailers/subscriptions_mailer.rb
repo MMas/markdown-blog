@@ -1,8 +1,5 @@
 class SubscriptionsMailer < ApplicationMailer
 
-  default from: "subscriptions@markdown-blog.com"
-  layout 'mailer'
-
   def subscription(subscriber, article)
     @subscriber = subscriber
     @article = article
