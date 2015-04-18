@@ -2,6 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Admin::ArticlesController, :type => :controller do
 
+  login_administrator!
+
+  before(:each) do
+    # @article = FactoryGirl.create(:article)
+    @article = FactoryGirl.create(:article, administrator: subject.current_administrator)
+  end
+
   describe "GET index" do
     it "returns http success" do
       get :index
@@ -11,7 +18,7 @@ RSpec.describe Admin::ArticlesController, :type => :controller do
 
   describe "GET show" do
     it "returns http success" do
-      get :show
+      get :show, id: @article.slug
       expect(response).to be_success
     end
   end
@@ -25,15 +32,15 @@ RSpec.describe Admin::ArticlesController, :type => :controller do
 
   describe "GET edit" do
     it "returns http success" do
-      get :edit
+      get :edit, id: @article.id
       expect(response).to be_success
     end
   end
 
   describe "GET destroy" do
     it "returns http success" do
-      get :destroy
-      expect(response).to be_success
+      get :destroy, id: @article.id
+      expect(response).to redirect_to(admin_articles_path)
     end
   end
 

@@ -1,6 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe Frontend::ArticleController, :type => :controller do
+RSpec.describe Frontend::ArticlesController, :type => :controller do
+
+  before(:each) do
+    @article = FactoryGirl.create(:article)
+  end
 
   describe "GET index" do
     it "returns http success" do
@@ -11,7 +15,7 @@ RSpec.describe Frontend::ArticleController, :type => :controller do
 
   describe "GET show" do
     it "returns http success" do
-      get :show
+      get :show, id: @article.id
       expect(response).to be_success
     end
   end

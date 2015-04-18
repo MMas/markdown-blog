@@ -1,5 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Subscriber, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  before do
+    @subscriber = FactoryGirl.create(:subscriber)
+  end
+
+  subject { @subscriber }
+
+  it "should have a valid factory" do
+    expect(FactoryGirl.create(:subscriber)).to be_valid
+  end
+
+  it { should respond_to(:email) }
+  it { should be_valid }
+
 end

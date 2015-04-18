@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Admin::DashboardController, :type => :controller do
 
+  login_administrator!
+  
   describe "GET index" do
     it "returns http success" do
       get :index
