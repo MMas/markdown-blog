@@ -1,4 +1,10 @@
-<h1><%= @article.name %></h1>
+<h1>Hi <%= @subscriber.email %></h1>
 <p>
-  <%= @article.content %>
+  A new article has been published (<%= @article.name %>).
 </p>
+
+<hr class="featurette-divider">
+
+<p>You can unsubscribe by clicking the link below:</p>
+
+<p><%= link_to 'Unsubscribe', unsubscribe_frontend_subscriptions_url(id: @subscriber.id), target: "_blank" %></p>
