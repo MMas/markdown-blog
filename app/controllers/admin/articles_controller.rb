@@ -21,7 +21,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     @article = Article.new(article_params)
     @article.administrator = current_administrator
     if @article.save
-      # SubscriptionsJob.perform_async(@article)
+      SubscriptionsJob.perform(@article)
       redirect_to [:admin, @article], notice: "Successfully created article."
     else
       render :new
