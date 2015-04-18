@@ -7,6 +7,14 @@ Rails.application.routes.draw do
         post "new_comment"
       end
     end
+
+    resources :subscriptions, only: [:subscribe, :unsubscribe] do
+      collection do
+        post "subscribe"     =>  'subscriptions#subscribe'
+        post "unsubscribe"     =>  'subscriptions#unsubscribe'
+      end
+    end
+
   end
 
   devise_for :administrators
