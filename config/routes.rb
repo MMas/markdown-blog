@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  
+
   namespace :frontend, path: '/' do
     root 'articles#index'
     resources :articles, only: [:index, :show] do
@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
     resources :subscriptions, only: [:subscribe, :unsubscribe] do
       collection do
-        post "subscribe"     =>  'subscriptions#subscribe'
-        post "unsubscribe"     =>  'subscriptions#unsubscribe'
+        post "subscribe"   =>  'subscriptions#subscribe'
+        get "unsubscribe"  =>  'subscriptions#unsubscribe'
       end
     end
 
