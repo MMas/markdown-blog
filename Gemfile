@@ -10,6 +10,11 @@ gem 'redcarpet'
 gem 'albino'
 gem 'nokogiri'
 
+gem 'sidekiq'
+
+gem "letter_opener"
+gem "launchy"
+
 gem 'simple_form'
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
