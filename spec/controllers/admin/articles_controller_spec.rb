@@ -32,14 +32,14 @@ RSpec.describe Admin::ArticlesController, :type => :controller do
 
   describe "GET edit" do
     it "returns http success" do
-      get :edit, id: @article.id
+      get :edit, id: @article.slug
       expect(response).to be_success
     end
   end
 
   describe "GET destroy" do
     it "returns http success" do
-      get :destroy, id: @article.id
+      get :destroy, id: @article.slug
       expect(response).to redirect_to(admin_articles_path)
     end
   end
