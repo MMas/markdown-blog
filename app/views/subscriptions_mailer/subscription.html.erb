@@ -3,7 +3,7 @@
   A new article has been published (<%= @article.try(:name) %>).
 </p>
 
-<p><%= link_to 'Click here to read Article', frontend_article_url(@article) %></p>
+<p><%= link_to 'Click here to read Article', frontend_article_url(@article), target: "_blank" %></p>
 
 <hr class="featurette-divider">
 
