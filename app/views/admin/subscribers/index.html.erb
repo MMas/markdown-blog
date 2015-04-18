@@ -16,9 +16,9 @@
     <% @subscribers.each do |subscriber| %>
       <tr>
         <td><%= subscriber.email %></td>
-        <td><%= subscriber.first_name %></td>
+        <td><%= localize(subscriber.created_at, format: :short) %></td>
         <td class="actions">
-          <%= link_to "Destroy", subscriber, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+          <%= link_to "Destroy", [:admin, subscriber], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
         </td>
       </tr>
     <% end %>
