@@ -3,9 +3,9 @@ class Frontend::SubscriptionsController < Frontend::ApplicationController
   def subscribe
     @subscriber = Subscriber.new(subscriber_params)
     if @subscriber.save
-      redirect_to :back, notice: "Successfully subscibed - #{@subscriber.email}."
+      redirect_to :back, notice: "Successfully subscribed - #{@subscriber.email}."
     else
-      redirect_to frontend_root_url, alert: "Could not subscibe - #{@subscriber.email}."
+      redirect_to frontend_root_url, alert: "Could not subscribe - #{@subscriber.email}."
     end
   end
 
