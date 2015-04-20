@@ -15,7 +15,17 @@ module ViewMacros
       visit new_administrator_session_path
       fill_in 'Email', with: admin.email
       fill_in 'Password', with: admin.password
-      click_button 'Sign in'
+      click_button 'Log in'
     end
+  end
+end
+
+module AuthenticationHelpers
+  def login_administrator!
+    admin = FactoryGirl.create(:administrator)
+    visit new_administrator_session_path
+    fill_in 'Email', with: admin.email
+    fill_in 'Password', with: admin.password
+    click_button 'Log in'
   end
 end

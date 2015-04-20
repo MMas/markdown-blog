@@ -71,9 +71,10 @@ Spork.prefork do
     config.include FactoryGirl::Syntax::Methods
     config.include Capybara::DSL
     config.include Requests::JsonHelpers, type: :request
-    config.extend  ViewMacros, :type => :view
-    config.include Devise::TestHelpers, :type => :controller
-    config.extend  ControllerMacros, :type => :controller
+    config.extend  ViewMacros,            type: :view
+    config.include Devise::TestHelpers,   type: :controller
+    config.extend  ControllerMacros,      type: :controller
+    config.include AuthenticationHelpers, type: :feature
   end
 
   Capybara.javascript_driver = :webkit
